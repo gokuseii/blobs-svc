@@ -1,0 +1,42 @@
+parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
+
+
+get:
+  tags:
+    - Blobs
+  summary: Get blob
+  operationId: getBlob
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Blob'
+    '400':
+      description: Bad request
+    '404':
+      description: Not Found
+    '500':
+      description: Failed to get blob
+
+delete:
+  tags:
+    - Blobs
+  summary: Delete blob
+  operationId: deleteBlob
+  responses:
+    '204':
+      description: Success
+    400':
+      description: Bad request
+    '500':
+      description: Failed to delete blob

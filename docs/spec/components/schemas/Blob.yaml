@@ -1,0 +1,13 @@
+allOf:
+  - $ref: '#/components/schemas/BlobKey'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
