@@ -1,6 +1,7 @@
 package types
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"gitlab.com/distributed_lab/logan/v3/errors"
@@ -9,7 +10,7 @@ import (
 type Blob struct {
 	ID                string
 	Type              BlobType
-	Value             string
+	Value             json.RawMessage
 	OwnerAddress      *Address `db:"owner_address"`
 	CreatorSignerRole *uint64  `db:"creator_signer_role"`
 }
