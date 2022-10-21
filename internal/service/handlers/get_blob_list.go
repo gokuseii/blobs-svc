@@ -44,6 +44,11 @@ func GetBlobsList(w http.ResponseWriter, r *http.Request) {
 
 func applyFilters(q data.BlobQ, request requests.GetBlobsListRequest) {
 	q.Page(request.OffsetPageParams)
+
+	if request.FilterOwnerAddress != nil {
+		q.FilterByOwnerAddress(*request.FilterOwnerAddress)
+	}
+
 }
 
 func newBlobsList(blobs []types.Blob) []resources.Blob {

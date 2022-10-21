@@ -17,7 +17,7 @@ func GetBlob(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	blob, err := BlobQ(r).Get(request.BlobID)
+	blob, err := BlobQ(r).FilterByID(request.BlobID).Get()
 	if err != nil {
 		Log(r).WithError(err).Error("failed to get blob")
 		ape.RenderErr(w, problems.InternalError())

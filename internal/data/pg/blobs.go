@@ -67,10 +67,9 @@ func (q *BlobQ) Create(blob *types.Blob) error {
 	return err
 }
 
-func (q *BlobQ) Get(id string) (*types.Blob, error) {
+func (q *BlobQ) Get() (*types.Blob, error) {
 	var result types.Blob
-	stmt := q.sql.Where(sq.Eq{"b.id": id})
-	err := q.db.Get(&result, stmt)
+	err := q.db.Get(&result, q.sql)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return nil, nil
@@ -94,5 +93,15 @@ func (q *BlobQ) Select() ([]types.Blob, error) {
 
 func (q *BlobQ) Page(pageParams pgdb.OffsetPageParams) data.BlobQ {
 	q.sql = pageParams.ApplyTo(q.sql, "id")
+	return q
+}
+
+func (q *BlobQ) FilterByID(id string) data.BlobQ {
+	q.sql = q.sql.Where(sq.Eq{"b.id": id})
+	return q
+}
+
+func (q *BlobQ) FilterByOwnerAddress(address types.Address) data.BlobQ {
+	q.sql = q.sql.Where(sq.Eq{"b.owner_address": address})
 	return q
 }

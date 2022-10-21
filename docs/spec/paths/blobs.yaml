@@ -35,6 +35,15 @@ get:
     - Blobs
   summary: Get blob list
   operationId: getBlobList
+  parameters:
+    - $ref: '#/components/parameters/pageNumberParam'
+    - $ref: '#/components/parameters/pageLimitParam'
+    - $ref: '#/components/parameters/sortingParam'
+    - in: query
+      name: 'filter[owner_address]'
+      required: false
+      schema:
+        type: string
   responses:
     '200':
       description: Success
