@@ -25,6 +25,8 @@ post:
                 $ref: '#/components/schemas/Blob'
     '400':
       description: Bad request
+    '409':
+      description: Conflict
     '500':
       description: Failed to create blob
 

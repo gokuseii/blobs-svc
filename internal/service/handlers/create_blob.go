@@ -39,11 +39,15 @@ func CreateBlob(w http.ResponseWriter, r *http.Request) {
 	})
 
 	if err != nil {
-		if errors.Cause(err) != pg.ErrBlobsConflict {
-			Log(r).WithError(err).Error("failed to save blob")
-			ape.RenderErr(w, problems.InternalError())
+		if errors.Cause(err) == pg.ErrBlobsConflict {
+			Log(r).WithError(err).Error("conflict")
+			ape.RenderErr(w, problems.Conflict())
 			return
 		}
+
+		Log(r).WithError(err).Error("failed to save blob")
+		ape.RenderErr(w, problems.InternalError())
+		return
 	}
 
 	response := resources.BlobResponse{
