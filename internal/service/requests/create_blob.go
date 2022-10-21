@@ -14,7 +14,7 @@ import (
 )
 
 type CreateBlobRequest struct {
-	Data resources.CreateBlob
+	Data resources.Blob
 }
 
 func NewCreateBlobRequest(r *http.Request) (CreateBlobRequest, error) {
@@ -35,7 +35,7 @@ func (r *CreateBlobRequest) validate() error {
 	}.Filter()
 }
 
-func Blob(r resources.CreateBlob, allowedRole uint64) (*types.Blob, error) {
+func Blob(r resources.Blob, allowedRole uint64) (*types.Blob, error) {
 	blob, err := types.GetBlobType(string(r.Type))
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to create blob")

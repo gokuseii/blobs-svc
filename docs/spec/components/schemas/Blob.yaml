@@ -2,8 +2,16 @@ allOf:
   - $ref: '#/components/schemas/BlobKey'
   - type: object
     required:
+      - raltionships
       - attributes
     properties:
+      relationships:
+        type: object
+        required:
+          - owner
+        properties:
+          owner:
+            $ref: '#/components/schemas/OwnerKey'
       attributes:
         type: object
         required:
