@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"blobs-svc/internal/service/requests"
+	"blobs-svc/resources"
 	"net/http"
 
-	"blobs-svc/docs/resources"
 	"blobs-svc/internal/types"
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"

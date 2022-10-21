@@ -3,9 +3,8 @@ package handlers
 import (
 	"blobs-svc/internal/service/helpers"
 	"blobs-svc/internal/types"
+	"blobs-svc/resources"
 	"net/http"
-
-	"blobs-svc/docs/resources"
 
 	"blobs-svc/internal/data"
 	"blobs-svc/internal/service/requests"

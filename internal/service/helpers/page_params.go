@@ -1,10 +1,10 @@
 package helpers
 
 import (
+	"blobs-svc/resources"
 	"net/http"
 	"strconv"
 
-	"blobs-svc/docs/resources"
 	"gitlab.com/distributed_lab/kit/pgdb"
 )
 

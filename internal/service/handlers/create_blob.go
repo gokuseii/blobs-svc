@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"blobs-svc/docs/resources"
 	"blobs-svc/internal/data"
 	"blobs-svc/internal/data/pg"
+	"blobs-svc/resources"
 	validation "github.com/go-ozzo/ozzo-validation"
 	"net/http"
 

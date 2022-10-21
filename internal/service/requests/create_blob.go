@@ -2,13 +2,13 @@ package requests
 
 import (
 	"blobs-svc/internal/types"
+	"blobs-svc/resources"
 	"encoding/base32"
 	"encoding/json"
 	"fmt"
 	validation "github.com/go-ozzo/ozzo-validation"
 	"net/http"
 
-	"blobs-svc/docs/resources"
 	"gitlab.com/distributed_lab/logan/v3/errors"
 	"gitlab.com/tokend/go/hash"
 )

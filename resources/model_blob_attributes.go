@@ -4,6 +4,8 @@
 
 package resources
 
+import "encoding/json"
+
 type BlobAttributes struct {
-	Value string `json:"value"`
+	Value json.RawMessage `json:"value"`
 }

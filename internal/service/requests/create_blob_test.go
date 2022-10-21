@@ -1,9 +1,8 @@
 package requests
 
 import (
+	"blobs-svc/resources"
 	"testing"
-
-	"blobs-svc/docs/resources"
 
 	"github.com/stretchr/testify/assert"
 	"gitlab.com/distributed_lab/ape/apeutil"
