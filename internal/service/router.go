@@ -1,14 +1,13 @@
 package service
 
 import (
-	"blobs-svc/internal/config"
 	"blobs-svc/internal/data/pg"
 	"blobs-svc/internal/service/handlers"
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"
 )
 
-func (s *service) router(cfg config.Config) chi.Router {
+func (s *service) router() chi.Router {
 	r := chi.NewRouter()
 
 	r.Use(
@@ -16,7 +15,9 @@ func (s *service) router(cfg config.Config) chi.Router {
 		ape.LoganMiddleware(s.log),
 		ape.CtxMiddleware(
 			handlers.CtxLog(s.log),
-			handlers.CtxBlobQ(pg.NewBlobQ(cfg.DB())),
+			handlers.CtxBlobQ(pg.NewBlobQ(s.cfg.DB())),
+			handlers.CtxSubmitter(s.cfg.Submit()),
+			handlers.CtxKeys(s.cfg.Keys()),
 		),
 	)
 
@@ -27,6 +28,10 @@ func (s *service) router(cfg config.Config) chi.Router {
 			r.Get("/", handlers.GetBlob)
 			r.Delete("/", handlers.DeleteBlob)
 		})
+	})
+
+	r.Route("/accounts", func(r chi.Router) {
+		r.Post("/", handlers.CreateAccount)
 	})
 
 	return r

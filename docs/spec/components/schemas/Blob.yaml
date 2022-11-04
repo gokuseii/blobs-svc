@@ -2,7 +2,7 @@ allOf:
   - $ref: '#/components/schemas/BlobKey'
   - type: object
     required:
-      - raltionships
+      - relationships
       - attributes
     properties:
       relationships:

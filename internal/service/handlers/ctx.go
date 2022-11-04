@@ -4,6 +4,8 @@ import (
 	"blobs-svc/internal/data"
 	"context"
 	"gitlab.com/distributed_lab/logan/v3"
+	"gitlab.com/tokend/connectors/keyer"
+	"gitlab.com/tokend/connectors/submit"
 	"net/http"
 )
 
@@ -12,7 +14,29 @@ type ctxKey int
 const (
 	logCtxKey ctxKey = iota
 	blobQCtxKey
+	keysCtxKey
+	submitterCtxKey
 )
+
+func CtxSubmitter(v *submit.Submitter) func(context.Context) context.Context {
+	return func(ctx context.Context) context.Context {
+		return context.WithValue(ctx, submitterCtxKey, v)
+	}
+}
+
+func Submitter(r *http.Request) *submit.Submitter {
+	return r.Context().Value(submitterCtxKey).(*submit.Submitter)
+}
+
+func CtxKeys(v keyer.Keys) func(context.Context) context.Context {
+	return func(ctx context.Context) context.Context {
+		return context.WithValue(ctx, keysCtxKey, v)
+	}
+}
+
+func Keys(r *http.Request) keyer.Keys {
+	return r.Context().Value(keysCtxKey).(keyer.Keys)
+}
 
 func CtxLog(entry *logan.Entry) func(context.Context) context.Context {
 	return func(ctx context.Context) context.Context {

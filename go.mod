@@ -8,7 +8,7 @@ require (
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/google/jsonapi v0.0.0-20200226002910-c8283f632fb7
 	github.com/rubenv/sql-migrate v1.2.0
-	github.com/spf13/cast v1.3.1
+	github.com/spf13/cast v1.4.1
 	gitlab.com/distributed_lab/ape v1.7.1
 	gitlab.com/distributed_lab/kit v1.11.1
 	gitlab.com/distributed_lab/logan v3.8.1+incompatible
@@ -79,10 +79,12 @@ require (
 	github.com/zenazn/goji v0.9.1-0.20160507202103-64eb34159fe5 // indirect
 	gitlab.com/distributed_lab/corer v0.0.0-20171130114150-cbfb46525895 // indirect
 	gitlab.com/distributed_lab/figure v2.1.0+incompatible // indirect
+	gitlab.com/distributed_lab/json-api-connector v0.2.4 // indirect
 	gitlab.com/distributed_lab/lorem v0.2.0 // indirect
-	gitlab.com/distributed_lab/running v0.0.0-20200706131153-4af0e83eb96c // indirect
+	gitlab.com/distributed_lab/running v1.6.0 // indirect
 	gitlab.com/distributed_lab/txsub v0.0.0-20171130120140-d7781cbc2319 // indirect
 	gitlab.com/distributed_lab/urlval v3.0.0+incompatible // indirect
+	gitlab.com/tokend/connectors v0.1.9-rc.4 // indirect
 	gitlab.com/tokend/horizon v0.0.0-20211130122149-3181416742eb // indirect
 	gitlab.com/tokend/horizon-connector v4.3.1+incompatible // indirect
 	gitlab.com/tokend/keypair v0.0.0-20190412110653-b9d7e0c8b312 // indirect

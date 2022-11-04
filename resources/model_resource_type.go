@@ -8,6 +8,7 @@ type ResourceType string
 
 // List of ResourceType
 const (
+	IDENTITY_ACCOUNT     ResourceType = "identity-account"
 	ASSET_DESCRIPTION    ResourceType = "asset_description"
 	FUND_OVERVIEW        ResourceType = "fund_overview"
 	FUND_UPDATE          ResourceType = "fund_update"
@@ -23,4 +24,5 @@ const (
 	KYC_ID_DOCUMENT      ResourceType = "kyc_id_document"
 	KYC_POA              ResourceType = "kyc_poa"
 	IDENTITY_MIND_REJECT ResourceType = "identity_mind_reject"
+	SIGNER               ResourceType = "signer"
 )
