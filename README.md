@@ -2,7 +2,7 @@
 
 ## Description
 
-[//]: # (TODO: add description)
+Example task for DL
 
 ## Install
 
